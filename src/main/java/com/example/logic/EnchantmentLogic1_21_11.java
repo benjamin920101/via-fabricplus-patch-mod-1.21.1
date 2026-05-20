@@ -25,7 +25,7 @@ public class EnchantmentLogic1_21_11 {
             } else if (value instanceof ListTag) {
                 ListTag list = (ListTag) value;
                 if (list.getElementType() == CompoundTag.class) {
-                    for (Tag element : list) {
+                    for (Object element : list) {
                         updateNestedEffect((CompoundTag) element, effectHandlers);
                     }
                 }
@@ -41,7 +41,7 @@ public class EnchantmentLogic1_21_11 {
             // Recursive effects - In 5.1.2, getListTag might have different signature or we use get
             ListTag nestedEffects = effect.getListTag("effects", CompoundTag.class);
             if (nestedEffects != null) {
-                for (Tag nested : nestedEffects) {
+                for (Object nested : nestedEffects) {
                     runEffectRewriters((CompoundTag) nested, effectHandlers);
                 }
             }
@@ -57,7 +57,7 @@ public class EnchantmentLogic1_21_11 {
         if (requirements != null) {
             ListTag terms = requirements.getListTag("terms", CompoundTag.class);
             if (terms != null) {
-                for (Tag term : terms) {
+                for (Object term : terms) {
                     processEntityPredicate((CompoundTag) term);
                 }
             }
