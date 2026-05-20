@@ -39,7 +39,6 @@ dependencies {
 	compileOnly files('ViaFabricPlus-3.4.9.jar')
 	compileOnly files('viaversion-common-5.1.2-SNAPSHOT.jar')
 }
-}
 
 processResources {
 	def version = project.version
